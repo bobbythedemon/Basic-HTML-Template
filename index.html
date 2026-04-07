@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enfinity - Gorilla Tag Mod Menu</title>
+    <title>Template - Documentation</title>
     <style>
         :root {
             --bg-sidebar: #f8f9fa;
@@ -12,7 +12,8 @@
             --text-dark: #212529;
             --text-muted: #6c757d;
             --header-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            --discord-blurple: #5865F2;
+            --btn-grey: #6c757d;    
+            --sidebar-accent: #adb5bd; /* The new grey for the box border */
         }
 
         body {
@@ -59,7 +60,7 @@
         .nav-box {
             background-color: #f8f9fa;
             border: 1px solid #dee2e6;
-            border-left: 3px solid var(--discord-blurple);
+            border-left: 3px solid var(--sidebar-accent); /* Changed from blue to grey */
             padding: 15px;
             border-radius: 0;
         }
@@ -72,9 +73,8 @@
             letter-spacing: 0.5px;
         }
 
-        .discord-btn {
+        .btn {
             display: block;
-            background-color: var(--discord-blurple);
             color: white !important;
             text-align: center;
             text-decoration: none;
@@ -82,13 +82,16 @@
             border-radius: 0;
             font-weight: 600;
             font-size: 13px;
-            transition: background-color 0.2s;
+            transition: opacity 0.2s;
+            margin-bottom: 10px;
         }
 
-        .discord-btn:hover {
-            background-color: #4752c4;
+        .btn:hover {
+            opacity: 0.8;
             text-decoration: none !important;
         }
+
+        .btn-grey { background-color: var(--btn-grey); }
 
         /* Content Area */
         main {
@@ -105,41 +108,15 @@
 
         .subtitle {
             font-size: 18px;
-            color: var(--discord-blurple);
+            color: var(--text-muted);
             font-weight: 600;
             margin-bottom: 30px;
-        }
-
-        h2 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-top: 30px;
-            margin-bottom: 10px;
         }
 
         p {
             margin-bottom: 1.5em;
             color: #444;
             max-width: 850px;
-        }
-
-        ul {
-            margin-bottom: 1.5em;
-        }
-
-        li {
-            margin-bottom: 5px;
-        }
-
-        .example-box {
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
-            padding: 20px;
-            margin: 25px 0;
-            font-family: monospace;
-            font-size: 13px;
-            border-radius: 0;
-            border-left: 4px solid #333;
         }
 
         .footer-note {
@@ -150,64 +127,44 @@
             border-top: 1px solid #eee;
             padding-top: 20px;
         }
+
+        .cta-container {
+            max-width: 300px;
+            margin-top: 30px;
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="brand">Enfinity</div>
+    <div class="brand">Name</div>
 </header>
 
 <div class="wrapper">
     <aside>
         <div class="nav-box">
-            <h4>Download</h4>
-            <a href="https://discord.gg/q57MnsWq" target="_blank" class="discord-btn">
-                Join Discord Community
+            <h4>Navigation</h4>
+            <a href="#" class="btn btn-grey">
+                Button
             </a>
         </div>
     </aside>
 
     <main id="main-content">
         <div id="page-home" class="content-page">
-            <h1>Enfinity</h1>
-            <div class="subtitle">Next-Generation Gorilla Tag Mod Menu</div>
+            <h1>Name</h1>
+            <div class="subtitle">Subtitle/Tagline</div>
             
-            <p>Enfinity is a next-generation mod menu built for players who want more control, more power, and a smoother overall experience. Designed with both performance and usability in mind, Enfinity combines a clean, modern interface with a steadily expanding set of features that enhance gameplay without sacrificing stability.</p>
+            <p>Put your description here.</p>
 
-            <p>Every part of Enfinity has been carefully developed to feel responsive, reliable, and easy to navigate. Whether you're a beginner exploring mod menus for the first time or an experienced user looking for something more refined, Enfinity provides a balanced experience that’s both powerful and accessible.</p>
-
-            <p>What sets Enfinity apart is its focus on continuous improvement. Updates are rolled out consistently, bringing new tools, optimizations, and refinements to ensure the menu stays up to date and ahead of the curve. The goal isn’t just to add features—it’s to make sure every feature works smoothly and integrates seamlessly into the overall experience.</p>
-
-            <p>The interface is sleek and minimal, allowing users to quickly access options without clutter or confusion. Performance is a top priority, meaning you can expect stable operation and reduced lag while using the menu. Enfinity is built to run cleanly in the background while giving you full control when you need it.</p>
-
-            <h2>Core Features:</h2>
-            <ul>
-                <li>Clean, modern, and easy-to-use interface</li>
-                <li>Optimized for smooth and stable performance</li>
-                <li>Fast navigation with responsive controls</li>
-                <li>Regular updates with new features and improvements</li>
-                <li>Designed for both new and experienced users</li>
-            </ul>
-
-            <h2>Upcoming Features:</h2>
-            <div class="example-box">
-                <ul>
-                    <li>Advanced kick system for greater session control</li>
-                    <li>Expanded moderation and management tools</li>
-                    <li>Additional customization options for deeper control</li>
-                    <li>More advanced utilities and enhancements</li>
-                </ul>
+            <div class="cta-container">
+                <a href="#" class="btn btn-grey">
+                    Button
+                </a>
             </div>
-            
-            <p>Enfinity is more than just a mod menu—it’s a growing platform built with long-term development in mind. As new features are introduced and existing systems are refined, Enfinity continues to evolve into a more powerful and complete tool.</p>
-
-            <p><strong>Stay tuned, because this is only the beginning.</strong></p>
 
             <div class="footer-note">
-                <p>Description written by @Dreamer_55105 (Dreamer)</p>
-                <p>Discord link provided by @Dreamer_55105 (Dreamer)</p>
-                <p>Website made by @bobrik123_ (Android) on Discord</p>
+                <p>Credits/Footnote here</p>
             </div>
         </div>
     </main>
