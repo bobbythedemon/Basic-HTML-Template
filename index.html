@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template - Documentation</title>
+    <title>Template - Modern Documentation</title>
     <style>
         :root {
             --bg-sidebar: #f8f9fa;
             --border-color: #ced4da;
-            --link-blue: #007bff;
             --text-dark: #212529;
             --text-muted: #6c757d;
             --header-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             --btn-grey: #6c757d;    
-            --sidebar-accent: #adb5bd; /* The new grey for the box border */
+            --sidebar-accent: #adb5bd;
+            --sidebar-width: 240px;
+            --code-bg: #f1f3f5;
+            --link-blue: #0000FF;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
@@ -24,16 +30,21 @@
             color: var(--text-dark);
             line-height: 1.6;
             font-size: 14px;
+            overflow-x: hidden;
         }
 
-        /* Top Navigation Header */
+        /* Header */
         header {
             background-color: #f8f9fa;
             border-bottom: 1px solid var(--border-color);
             display: flex;
             align-items: center;
+            justify-content: space-between;
             height: 60px;
             padding: 0 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .brand {
@@ -43,26 +54,40 @@
             letter-spacing: -1px;
         }
 
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 1px solid var(--border-color);
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 0;
+            font-size: 18px;
+        }
+
         /* Main Layout */
         .wrapper {
             display: flex;
             max-width: 1400px;
             margin: 0 auto;
+            min-height: calc(100vh - 60px);
         }
 
-        /* Navigation Sidebar */
+        /* Sidebar */
         aside {
-            width: 220px;
+            width: var(--sidebar-width);
             padding: 30px 20px;
             border-right: 1px solid #eeeeee;
+            background: white;
+            transition: transform 0.3s ease;
         }
 
         .nav-box {
             background-color: #f8f9fa;
             border: 1px solid #dee2e6;
-            border-left: 3px solid var(--sidebar-accent); /* Changed from blue to grey */
+            border-left: 3px solid var(--sidebar-accent);
             padding: 15px;
-            border-radius: 0;
+            position: sticky;
+            top: 80px;
         }
 
         .nav-box h4 {
@@ -73,30 +98,11 @@
             letter-spacing: 0.5px;
         }
 
-        .btn {
-            display: block;
-            color: white !important;
-            text-align: center;
-            text-decoration: none;
-            padding: 10px;
-            border-radius: 0;
-            font-weight: 600;
-            font-size: 13px;
-            transition: opacity 0.2s;
-            margin-bottom: 10px;
-        }
-
-        .btn:hover {
-            opacity: 0.8;
-            text-decoration: none !important;
-        }
-
-        .btn-grey { background-color: var(--btn-grey); }
-
-        /* Content Area */
+        /* Main Content */
         main {
             flex: 1;
             padding: 40px 60px;
+            width: 100%;
         }
 
         h1 {
@@ -113,11 +119,60 @@
             margin-bottom: 30px;
         }
 
-        p {
-            margin-bottom: 1.5em;
-            color: #444;
-            max-width: 850px;
+        /* Text Styles */
+        .code-snippet {
+            font-family: monospace;
+            background-color: var(--code-bg);
+            padding: 2px 4px;
+            border-radius: 0;
+            font-size: 90%;
         }
+
+        .code-cube {
+            display: block;
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre;
+            overflow-x: auto;
+            border-radius: 0;
+        }
+
+        .serious-link {
+            color: var(--link-blue);
+            text-decoration: underline;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            color: white !important;
+            text-align: center;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 0;
+            font-weight: 600;
+            font-size: 14px;
+            transition: filter 0.2s;
+            cursor: pointer;
+            border: none;
+            min-width: 150px;
+        }
+
+        .btn:hover {
+            filter: brightness(0.9);
+        }
+
+        .btn-grey { background-color: var(--btn-grey); }
 
         .footer-note {
             margin-top: 50px;
@@ -128,9 +183,21 @@
             padding-top: 20px;
         }
 
-        .cta-container {
-            max-width: 300px;
-            margin-top: 30px;
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            aside {
+                position: fixed;
+                left: 0;
+                top: 60px;
+                bottom: 0;
+                z-index: 999;
+                transform: translateX(-100%);
+                box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            }
+            aside.open { transform: translateX(0); }
+            main { padding: 30px 20px; }
+            .btn { width: 100%; }
         }
     </style>
 </head>
@@ -138,37 +205,71 @@
 
 <header>
     <div class="brand">Name</div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">☰</button>
 </header>
 
 <div class="wrapper">
-    <aside>
+    <aside id="sidebar">
         <div class="nav-box">
             <h4>Navigation</h4>
-            <a href="#" class="btn btn-grey">
-                Button
-            </a>
+            <a href="#" class="btn btn-grey" style="width: 100%; min-width: auto;">Button</a>
         </div>
     </aside>
 
     <main id="main-content">
-        <div id="page-home" class="content-page">
+        <div id="page-home">
             <h1>Name</h1>
             <div class="subtitle">Subtitle/Tagline</div>
             
-            <p>Put your description here.</p>
+            <p>Put your description here. This website layout adapts to your device while maintaining a consistent visual hierarchy.</p>
 
-            <div class="cta-container">
-                <a href="#" class="btn btn-grey">
-                    Button
-                </a>
+            <h3>Standard Text Formatting</h3>
+            <p>
+                This template supports <b>Bold Text</b> for high-priority information, <i>Italicized Text</i> for semantic emphasis, and <u>Underlined Text</u> for indicating specific terminology. 
+                External resources may be accessed via the <a href="https://github.com/bobbythedemon/Basic-HTML-Template/releases/tag/Template" target="_blank" class="serious-link">Link Text</a>.
+            </p>
+
+            <p>
+                Technical specifications may be displayed using the <span class="code-snippet">standardized code snippet</span> format for inline documentation.
+            </p>
+
+            <div class="code-cube">
+// Standardized Implementation Header
+function initializeTemplate() {
+    console.log("Template Loaded Successfully!");
+    return true;
+}
+            </div>
+
+            <div class="btn-group">
+                <a href="#" class="btn btn-grey">Main Action Button</a>
             </div>
 
             <div class="footer-note">
-                <p>Credits/Footnote here. Template made by bobbythedemon. https://github.com/bobbythedemon/Basic-HTML-Template </p>
+                <p>Credits/Footnote here</p>
             </div>
         </div>
     </main>
 </div>
+
+<script>
+    // Menu Logic
+    const toggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+
+    toggle.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+        toggle.innerText = sidebar.classList.contains('open') ? '✕' : '☰';
+    });
+
+    // Outside Click Close
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768 && !sidebar.contains(e.target) && !toggle.contains(e.target) && sidebar.classList.contains('open')) {
+            sidebar.classList.remove('open');
+            toggle.innerText = '☰';
+        }
+    });
+</script>
 
 </body>
 </html>
