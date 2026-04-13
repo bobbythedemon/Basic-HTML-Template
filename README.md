@@ -4,4 +4,4 @@ First, open all the folders until you find the Index.html, then find edit with n
 if youre on different operating systems, just open an app to see the code, and paste it into vs code or just launch it with vs code.
 
 
-!! SORRY FOR BAD INSTRUCTIONS !!
+THE SOFTWARE IS NOW DEPRECATED, YOU CAN STILL USE ITS DESIGN BUT IT WILL NOT BE UPDATED ANY MORE. 
